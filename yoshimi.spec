@@ -1,5 +1,5 @@
 %define name    yoshimi
-%define version 0.055.3
+%define version 0.055.6
 %define release %mkrel 1 
 
 Name:           %{name} 
