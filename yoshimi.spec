@@ -9,6 +9,7 @@ Release:        %{release}
 
 Source:         http://sourceforge.net/projects/yoshimi/files/%name-%version.tar.bz2
 URL:            http://yoshimi.sourceforge.net
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 License:        GPLv2
 Group:          Sound
 BuildRequires:  cmake alsa-lib-devel libjack-devel fltk-devel libz-devel
@@ -47,6 +48,7 @@ Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;
 EOF
 
 %clean
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
