@@ -1,5 +1,5 @@
 %define name    yoshimi
-%define version 0.055.6
+%define version 0.056
 %define release %mkrel 1 
 
 Name:           %{name} 
@@ -27,7 +27,7 @@ cd src
 
 %build
 cd src
-cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix} -DDEFAULT_MIDI=alsa
+cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix} -DDEFAULT_MIDI=alsa -DBUILD_OPTS="%{optflags}"
 %make
 
 %install
