@@ -1,6 +1,6 @@
 %define name    yoshimi
 %define version 0.056
-%define release %mkrel 1 
+%define release %mkrel 2
 
 Name:           %{name} 
 Summary:        ZynAddSubFX with improved RT capacities
@@ -27,7 +27,7 @@ cd src
 
 %build
 cd src
-cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix} -DDEFAULT_MIDI=alsa -DBUILD_OPTS="%{optflags}"
+cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix} -DDEFAULT_MIDI=alsa
 %make
 
 %install
