@@ -1,10 +1,10 @@
 %define name    yoshimi
-%define version 0.058.1
+%define version 0.060.8
 %define release %mkrel 1
 
-Name:           %{name} 
+Name:           %{name}
 Summary:        ZynAddSubFX with improved RT capacities
-Version:        %{version} 
+Version:        %{version}
 Release:        %{release}
 
 Source:         http://sourceforge.net/projects/yoshimi/files/%name-%version.tar.bz2
@@ -16,9 +16,9 @@ BuildRequires:  cmake alsa-lib-devel libjack-devel fltk-devel libz-devel
 BuildRequires:  fftw-devel mxml-devel libsndfile-devel fontconfig-devel mesaglu-devel
 
 %description
-Yoshimi is the legendary and powerful ZynAddSubFX multitimbral standalone 
-synthesizer, but with improved realtime capacities. Yoshimi can use 
-either ALSA or JACK for both Audio and MIDI.
+Yoshimi is the legendary and powerful ZynAddSubFX multitimbral standalone
+synthesizer, but with improved realtime capacities. Yoshimi can use
+either ALSA or JACK for both Audio and MIDI, the default now being JACK
 
 %prep
 %setup -q
@@ -27,7 +27,7 @@ cd src
 
 %build
 cd src
-cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix} -DDEFAULT_MIDI=alsa
+cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix}
 %make
 
 %install
