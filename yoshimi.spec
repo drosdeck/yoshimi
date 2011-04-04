@@ -14,6 +14,7 @@ License:        GPLv2
 Group:          Sound
 BuildRequires:  cmake alsa-lib-devel libjack-devel fltk-devel libz-devel
 BuildRequires:  fftw-devel mxml-devel libsndfile-devel fontconfig-devel mesaglu-devel
+BuildRequires:  boost-devel
 
 %description
 Yoshimi is the legendary and powerful ZynAddSubFX multitimbral standalone
