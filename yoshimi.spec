@@ -1,6 +1,6 @@
 %define name    yoshimi
 %define version 0.060.8
-%define release %mkrel 1
+%define release 2
 
 Name:           %{name}
 Summary:        ZynAddSubFX with improved RT capacities
