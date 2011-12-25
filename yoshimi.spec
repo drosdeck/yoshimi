@@ -1,6 +1,6 @@
 %define name    yoshimi
-%define version 0.060.8
-%define release 2
+%define version 0.060.10
+%define release 1
 
 Name:           %{name}
 Summary:        ZynAddSubFX with improved RT capacities
@@ -8,11 +8,12 @@ Version:        %{version}
 Release:        %{release}
 
 Source:         http://sourceforge.net/projects/yoshimi/files/%name-%version.tar.bz2
+Patch0:         yoshimi-0.060.10-fix-empty-functions.patch
 URL:            http://yoshimi.sourceforge.net
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 License:        GPLv2
 Group:          Sound
-BuildRequires:  cmake alsa-lib-devel libjack-devel fltk-devel libz-devel
+BuildRequires:  cmake alsa-lib-devel jackit-devel fltk-devel libz-devel
 BuildRequires:  fftw-devel mxml-devel libsndfile-devel fontconfig-devel mesaglu-devel
 BuildRequires:  boost-devel
 
@@ -23,6 +24,7 @@ either ALSA or JACK for both Audio and MIDI, the default now being JACK
 
 %prep
 %setup -q
+%patch0 -p1
 cd src
 
 
@@ -35,6 +37,8 @@ cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix}
 rm -rf %buildroot
 cd src
 %makeinstall_std
+chmod -R a+X %{buildroot}%{_datadir}/%{name}/banks
+chmod a-X %{buildroot}%{_datadir}/%{name}/banks/*/*
 mkdir -p %{buildroot}%{_datadir}/applications
 #make desktop file
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
