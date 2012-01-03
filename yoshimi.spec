@@ -1,5 +1,5 @@
 %define name    yoshimi
-%define version 0.060.10
+%define version 0.060.11
 %define release 1
 
 Name:           %{name}
@@ -8,7 +8,6 @@ Version:        %{version}
 Release:        %{release}
 
 Source:         http://sourceforge.net/projects/yoshimi/files/%name-%version.tar.bz2
-Patch0:         yoshimi-0.060.10-fix-empty-functions.patch
 URL:            http://yoshimi.sourceforge.net
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 License:        GPLv2
@@ -24,9 +23,6 @@ either ALSA or JACK for both Audio and MIDI, the default now being JACK
 
 %prep
 %setup -q
-%patch0 -p1
-cd src
-
 
 %build
 cd src
