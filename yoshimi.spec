@@ -1,5 +1,5 @@
 %define name    yoshimi
-%define version 0.060.11
+%define version 0.060.12
 %define release 1
 
 Name:           %{name}
@@ -8,6 +8,7 @@ Version:        %{version}
 Release:        %{release}
 
 Source:         http://sourceforge.net/projects/yoshimi/files/%name-%version.tar.bz2
+Source1:        Bot_galego.svg
 URL:            http://yoshimi.sourceforge.net
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 License:        GPLv2
@@ -42,11 +43,14 @@ cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
 Name=Yoshimi
 Comment=The improved ZynAddSubFX synthesizer
 Exec=%{_bindir}/%{name}
-Icon=sound_section
+Icon=Bot_galego
 Terminal=false
 Type=Application
 Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;
 EOF
+
+install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/
+install -m 644 %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/
 
 %clean
 rm -rf %{buildroot}
@@ -57,6 +61,7 @@ rm -rf %{buildroot}
 %dir %{_datadir}/%name
 %{_bindir}/%name
 %{_datadir}/%name/*
+%{_datadir}/icons/hicolor/scalable/apps/Bot_galego.svg
 %{_datadir}/applications/mandriva-%{name}.desktop
 
 
