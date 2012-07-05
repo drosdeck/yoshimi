@@ -1,5 +1,5 @@
 %define name    yoshimi
-%define version 0.060.12
+%define version 1.0.0
 %define release 1
 
 Name:           %{name}
@@ -8,13 +8,12 @@ Version:        %{version}
 Release:        %{release}
 
 Source:         http://sourceforge.net/projects/yoshimi/files/%name-%version.tar.bz2
-Source1:        Bot_galego.svg
 URL:            http://yoshimi.sourceforge.net
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 License:        GPLv2
 Group:          Sound
-BuildRequires:  cmake alsa-lib-devel jackit-devel fltk-devel libz-devel
-BuildRequires:  fftw-devel mxml-devel libsndfile-devel fontconfig-devel mesaglu-devel
+BuildRequires:  cmake libalsa-devel jackit-devel fltk-devel zlib-devel
+BuildRequires:  fftw-devel mxml-devel sndfile-devel fontconfig-devel mesaglu-devel
 BuildRequires:  boost-devel
 
 %description
@@ -34,23 +33,18 @@ cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix}
 rm -rf %buildroot
 cd src
 %makeinstall_std
-chmod -R a+X %{buildroot}%{_datadir}/%{name}/banks
-chmod a-X %{buildroot}%{_datadir}/%{name}/banks/*/*
-mkdir -p %{buildroot}%{_datadir}/applications
-#make desktop file
-cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
-[Desktop Entry]
-Name=Yoshimi
-Comment=The improved ZynAddSubFX synthesizer
-Exec=%{_bindir}/%{name}
-Icon=Bot_galego
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;
-EOF
 
-install -d %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/
-install -m 644 %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/
+rm -f %{buildroot}%{_datadir}/%{name}/banks/chip/.bankdir
+chmod -R 755 %{buildroot}%{_datadir}/%{name}/banks
+chmod -R 755 %{buildroot}%{_datadir}/%{name}/presets
+chmod a-X %{buildroot}%{_datadir}/%{name}/banks/*/*
+chmod a-X %{buildroot}%{_datadir}/%{name}/presets/*
+
+desktop-file-install \
+    --remove-key="Version" \
+    --add-category="X-MandrivaLinux-Sound" \
+    --dir %{buildroot}%{_datadir}/applications \
+%{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %clean
 rm -rf %{buildroot}
@@ -61,7 +55,7 @@ rm -rf %{buildroot}
 %dir %{_datadir}/%name
 %{_bindir}/%name
 %{_datadir}/%name/*
-%{_datadir}/icons/hicolor/scalable/apps/Bot_galego.svg
-%{_datadir}/applications/mandriva-%{name}.desktop
+%{_datadir}/pixmaps/%{name}.png
+%{_datadir}/applications/%{name}.desktop
 
 
