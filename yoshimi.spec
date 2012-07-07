@@ -1,6 +1,6 @@
 %define name    yoshimi
 %define version 1.0.0
-%define release 1
+%define release 2
 
 Name:           %{name}
 Summary:        ZynAddSubFX with improved RT capacities
@@ -15,6 +15,7 @@ Group:          Sound
 BuildRequires:  cmake libalsa-devel jackit-devel fltk-devel zlib-devel
 BuildRequires:  fftw-devel mxml-devel sndfile-devel fontconfig-devel mesaglu-devel
 BuildRequires:  boost-devel
+BuildRequires:  desktop-file-utils
 
 %description
 Yoshimi is the legendary and powerful ZynAddSubFX multitimbral standalone
