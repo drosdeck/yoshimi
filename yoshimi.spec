@@ -1,3 +1,4 @@
+%define debug_package %{nil}
 %define name    yoshimi
 %define version 1.0.0
 %define release 2
