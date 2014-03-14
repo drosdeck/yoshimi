@@ -13,7 +13,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 License:        GPLv2
 Group:          Sound
 BuildRequires:  cmake libalsa-devel jackit-devel fltk-devel zlib-devel
-BuildRequires:  fftw-devel mxml-devel sndfile-devel fontconfig-devel mesaglu-devel
+BuildRequires:  fftw-devel mxml-devel sndfile-devel fontconfig-devel glu-devel
 BuildRequires:  boost-devel
 BuildRequires:  desktop-file-utils
 
