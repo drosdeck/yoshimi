@@ -1,16 +1,12 @@
 %define debug_package %{nil}
-%define name    yoshimi
-%define version 1.0.0
-%define release 2
 
-Name:           %{name}
+Name:           yoshimi
 Summary:        ZynAddSubFX with improved RT capacities
-Version:        %{version}
-Release:        %{release}
+Version:        1.1.0
+Release:        1
 
-Source:         http://sourceforge.net/projects/yoshimi/files/%name-%version.tar.bz2
+Source:         http://downloads.sourceforge.net/yoshimi/%{name}-%{version}.tar.bz2
 URL:            http://yoshimi.sourceforge.net
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 License:        GPLv2
 Group:          Sound
 BuildRequires:  cmake libalsa-devel jackit-devel fltk-devel zlib-devel
@@ -32,7 +28,6 @@ cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix}
 %make
 
 %install
-rm -rf %buildroot
 cd src
 %makeinstall_std
 
@@ -49,10 +44,8 @@ desktop-file-install \
 %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %clean
-rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root)
 
 %dir %{_datadir}/%name
 %{_bindir}/%name
@@ -121,5 +114,6 @@ rm -rf %{buildroot}
 
   + Frank Kober <emuse@mandriva.org>
     - import yoshimi
+
 
 
