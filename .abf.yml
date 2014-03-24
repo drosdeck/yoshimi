@@ -1,4 +1,5 @@
 removed_sources:
   yoshimi-1.0.0.tar.bz2: fda85998b206a31f91c3a43c0e43f89fb0e2dd8f
-sources:
   yoshimi-1.1.0.tar.bz2: b23fb7adccb4c1fad609516fd1435280c2e9ae49
+sources:
+  yoshimi-1.2.0.tar.bz2: 87459399ed76cb72fe9ac428f97b08807ab44d5a
