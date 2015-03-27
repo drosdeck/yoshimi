@@ -3,10 +3,10 @@
 Name:           yoshimi
 Summary:        ZynAddSubFX with improved RT capacities
 
-Version:        1.2.1
-Release:        2
+Version:        1.3.2
+Release:        1
 
-Source:         http://sourceforge.net/projects/yoshimi/files/1.2/%{name}-%{version}.tar.bz2
+Source:         http://sourceforge.net/projects/yoshimi/files/%{name}-%{version}.tar.bz2
 URL:            http://yoshimi.sourceforge.net
 License:        GPLv2
 Group:          Sound
@@ -53,8 +53,3 @@ desktop-file-install \
 %{_datadir}/%{name}/*
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
-
-
-
-
-
